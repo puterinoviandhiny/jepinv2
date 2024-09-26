@@ -14,11 +14,18 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('username')->nullable(); //->unique() menyusul karna banyak username yang sama
             $table->string('email')->unique();
+            $table->foreignId('role_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('description')->nullable();
+            $table->tinyInteger('code_otp')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('role_id')->references('id')->on('roles')->nullOnDelete();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
