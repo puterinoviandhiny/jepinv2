@@ -16,6 +16,10 @@ Route::group([
     ),
     'namespace' => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
+    Route::crud('pariwisata', 'PariwisataCrudController');
+    // In your web.php
+    Route::get('pariwisata/filter-categories/{master_id}', [\App\Http\Controllers\Admin\CategoryApiController::class, 'filterByMaster']);
+
 }); // this should be the absolute last line of this file
 
 /**
