@@ -46,7 +46,7 @@ return [
     // ----
 
     // Project name - shown in the window title
-    'project_name' => 'Backpack Admin Panel',
+    'project_name' => 'JEPIN Admin Panel',
 
     // Content of the HTML meta robots tag to prevent indexing and link following
     'meta_robots_content' => 'noindex, nofollow',
@@ -63,7 +63,7 @@ return [
     'home_link' => '',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo' => '<b>Back</b>pack',
+    'project_logo' => '<b>JEPIN</b> NEW',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
@@ -79,7 +79,7 @@ return [
     'developer_link' => 'http://tabacitu.ro',
 
     // Show powered by Laravel Backpack in the footer? true/false
-    'show_powered_by' => true,
+    'show_powered_by' => false,
 
     // ---------
     // DASHBOARD
@@ -94,6 +94,7 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
+        'css/custom.css',
         // 'styles/example.css',
         // 'https://some-cdn.com/example.css',
     ],

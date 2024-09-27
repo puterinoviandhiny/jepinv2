@@ -1,0 +1,16 @@
+.btn-primary,
+.bg-primary,
+.text-primary,
+.border-primary,
+.badge-primary,
+.nav-pills .nav-link.active,
+.pagination .page-item.active .page-link {
+    background-color: #3f51b5 !important;
+    border-color: #3949ab !important;
+    color: #fff !important; /* Optional: Ensure text is readable */
+}
+
+.text-primary,
+a.text-primary:hover {
+    color: #3f51b5 !important;
+}
