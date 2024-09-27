@@ -16,9 +16,10 @@ class Pariwisata extends Model
     use HasFactory;
 
     protected $table = 'pariwisata';
-   // protected $fillable = 'name';
+    protected $fillable = ['user_id','master_id','category_id','halal','name','address','phone','email','description','latitude','longitude'];
+
     public function image(){
-        return $this->hasMany(PariwisataImage::class,'pariwisata_id','id');
+        return $this->hasMany(PariwisataImage::class);
     }
 
     public function user(){
