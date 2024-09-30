@@ -17,9 +17,13 @@ Route::group([
     'namespace' => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
     Route::crud('pariwisata', 'PariwisataCrudController');
-    // In your web.php
-    Route::get('pariwisata/filter-categories/{master_id}', [\App\Http\Controllers\Admin\CategoryApiController::class, 'filterByMaster']);
+    Route::get('pariwisata/{id}/arrange-photos', 'PariwisataCrudController@arrangePhotos');
+    Route::post('pariwisata/arrange-photos-save', 'PariwisataCrudController@savePhotoOrder');
 
+    Route::crud('commodities', 'CommoditiesCrudController');
+    Route::get('commodities/arrange-images', 'App\Http\Controllers\Admin\CommoditiesCrudController@arrangeImages');
+    Route::post('commodities/save-image-order', 'App\Http\Controllers\Admin\CommoditiesCrudController@saveImageOrder');
+    Route::crud('commodity-prices', 'CommodityPricesCrudController');
 }); // this should be the absolute last line of this file
 
 /**

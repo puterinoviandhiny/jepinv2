@@ -43,6 +43,7 @@ class PariwisataCrudController extends CrudController
      */
     protected function setupListOperation()
     {
+        $this->crud->addButtonFromModelFunction('line', 'arrangePhotos', 'arrangePhotos', 'beginning');
         //CRUD::setFromDb(); // set columns from db columns.
         $this->crud->enableBulkActions();
         CRUD::column('name')->type('text')->label('Nama');
@@ -93,8 +94,13 @@ class PariwisataCrudController extends CrudController
     {
         CRUD::setValidation(PariwisataRequest::class);
        // CRUD::setFromDb(); // set fields from db columns.
-       $userID = Auth::user('id');
-      // dd($userID);
+      // if (Auth::check()) {
+        $userID = Auth::user()->id;
+        //dd($userID);
+       //  } else {
+       // dd('User is not authenticated');
+      //  }
+
         CRUD::field('user_id')->type('hidden')->value($userID);
         CRUD::field('name')->type('text')->label('Nama');
         CRUD::field('address')->type('text')->label('Alamat');
@@ -166,6 +172,27 @@ class PariwisataCrudController extends CrudController
     }
 
     return $response;
+}
+
+public function arrangePhotos($id)
+{
+    $pariwisata = \App\Models\Pariwisata::find($id);
+    $photos = $pariwisata->image()->get(); // Assuming you have a relation with PariwisataImage model
+
+    return view('admin.pariwisata.arrange_photos', compact('pariwisata', 'photos'));
+}
+
+public function savePhotoOrder(PariwisataRequest $request)
+{
+    $photoOrder = $request->input('order');
+
+    foreach ($photoOrder as $index => $photoId) {
+        $photo = \App\Models\PariwisataImage::find($photoId);
+        $photo->position = $index + 1; // Assuming you have a 'position' field in the photos table
+        $photo->save();
+    }
+
+    return response()->json(['success' => true]);
 }
 
 }

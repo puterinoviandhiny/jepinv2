@@ -43,4 +43,8 @@ class Pariwisata extends Model
         // This function will handle the file upload for multiple files
         $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
     }
+    public function arrangePhotos()
+    {
+        return '<a class="btn btn-sm btn-link" href="'.url('admin/pariwisata/'.$this->id.'/arrange-photos').'" data-button-type="edit"><i class="la la-sort"></i> Arrange Photos</a>';
+    }
 }

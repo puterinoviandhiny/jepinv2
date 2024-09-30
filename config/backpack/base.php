@@ -133,11 +133,11 @@ return [
 
     // The guard that protects the Backpack admin panel.
     // If null, the config.auth.defaults.guard value will be used.
-    'guard' => 'backpack',
+    'guard' => null,
 
     // The password reset configuration for Backpack.
     // If null, the config.auth.defaults.passwords value will be used.
-    'passwords' => 'backpack',
+    'passwords' => null,
 
     // What kind of avatar will you like to show to the user?
     // Default: gravatar (automatically use the gravatar for their email)
@@ -172,7 +172,7 @@ return [
     // Should we use DB transactions when executing multiple queries? For example when creating an entry and it's relationships.
     // By wrapping in a database transaction you ensure that either all queries went ok, or if some failed the whole process
     // is rolled back and considered failed. This is a good setting for data integrity.
-    'useDatabaseTransactions' => false,
+    'useDatabaseTransactions' => true,
 
     /*
     |--------------------------------------------------------------------------

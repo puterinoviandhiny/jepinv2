@@ -4,3 +4,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('menu-item') }}'><i class='nav-icon la la-list'></i> <span>Menu</span></a></li>
 
 <x-backpack::menu-item title="Pariwisata" icon="la la-umbrella" :link="backpack_url('pariwisata')" />
+
+<x-backpack::menu-item title="Komoditas" icon="la la-fish" :link="backpack_url('commodities')" />
+
+<x-backpack::menu-item title="Harga Komoditas" icon="la la-tags" :link="backpack_url('commodity-prices')" />
