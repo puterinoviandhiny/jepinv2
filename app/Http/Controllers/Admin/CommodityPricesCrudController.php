@@ -19,6 +19,7 @@ class CommodityPricesCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    use \Backpack\CRUD\app\Http\Controllers\Operations\BulkDeleteOperation;
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
      *
@@ -39,7 +40,35 @@ class CommodityPricesCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // set columns from db columns.
+       // CRUD::setFromDb(); // set columns from db columns.
+       $this->crud->enableBulkActions();
+       CRUD::column('commodity_id')
+       ->type('closure')
+       ->label('Komoditas')
+       ->value(function($entry){
+        return $entry->commodity->commodity ;
+       });
+       CRUD::column([
+        'name'  => 'price',
+        'label' => 'Harga', 
+        'type'  => 'number',
+        'prefix'        => 'Rp. ',
+        'thousands_sep' => '.',
+       ]);
+       CRUD::column('market_id')
+       ->type('closure')
+       ->label('Pasar')
+       ->value(function($entry){
+        return $entry->market->name ;
+       });
+       CRUD::column('user_id')
+       ->type('closure')
+       ->label('User')
+       ->value(function($entry){
+        return $entry->user->name ;
+       });
+
+
 
         /**
          * Columns can be defined using the fluent syntax:

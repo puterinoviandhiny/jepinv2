@@ -6,8 +6,12 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@digitallyhappy/backstrap": "^0.5.1",
+        "animate.css": "^3.7.2",
         "axios": "^1.6.4",
+        "laravel-mix": "^6.0.49",
         "laravel-vite-plugin": "^1.0",
+        "noty": "^3.2.0-beta-deprecated",
         "vite": "^5.0"
     }
 }

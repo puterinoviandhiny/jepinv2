@@ -35,7 +35,15 @@ class CommodityPrices extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function commodity(){
+        return $this->belongsTo(Commodities::class);
+    }
+    public function market(){
+        return $this->belongsTo(Markets::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

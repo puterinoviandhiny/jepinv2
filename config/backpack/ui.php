@@ -94,14 +94,16 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
-        'css/custom.css',
+      //  'css/custom.css',
         // 'styles/example.css',
         // 'https://some-cdn.com/example.css',
+       // 'packages/backpack/base/css/blue-bundle.css',
     ],
 
     // CSS files that are loaded in all pages, using Laravel's mix() helper
     'mix_styles' => [ // file_path => manifest_directory_path
-        // 'css/app.css' => '',
+        // 'css/app.css' => 'css/app.js',
+       // 'css/custom.css',
     ],
 
     // CSS files that are loaded in all pages, using Laravel's @vite() helper
