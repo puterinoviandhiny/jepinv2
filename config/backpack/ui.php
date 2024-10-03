@@ -79,7 +79,7 @@ return [
     'developer_link' => 'http://tabacitu.ro',
 
     // Show powered by Laravel Backpack in the footer? true/false
-    'show_powered_by' => false,
+    'show_powered_by' => true,
 
     // ---------
     // DASHBOARD

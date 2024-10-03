@@ -32,12 +32,12 @@ return [
         'body' => 'app aside-menu-fixed sidebar-lg-show',
         // Try sidebar-hidden, sidebar-fixed, sidebar-compact, sidebar-lg-show
 
-        'sidebar' => 'sidebar ',
+        'sidebar' => 'sidebar sidebar-dark ',
         // Remove "sidebar-transparent" for standard sidebar look
         // Try "sidebar-light" or "sidebar-dark" for dark/light links
         // You can also add a background class like bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan
 
-        'footer' => 'app-footer d-print-none',
+        'footer' => 'app-footer d-print-none bg-dark',
         // hide it with d-none
         // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 

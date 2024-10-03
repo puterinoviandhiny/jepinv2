@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\CommoditiesRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-
+use Illuminate\Support\Facades\Auth;
 /**
  * Class CommoditiesCrudController
  * @package App\Http\Controllers\Admin
@@ -84,6 +84,7 @@ class CommoditiesCrudController extends CrudController
             'label' => 'Gambar',
             'name' => 'image',
             'type' => 'image',
+            
            // 'crop' => true, // set to true to allow cropping, false to disable
            // 'aspect_ratio' => 1, // omit or set to 0 to allow any aspect ratio
         ]);

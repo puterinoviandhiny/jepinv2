@@ -12,16 +12,17 @@
 @endsection
 
 @section('content')
-    <div class="card no-padding no-border mb-0">
-    <p>Drag n drop pada foto</p>
-    <ul id="sortable">
+<div class="card no-padding no-border mb-0">
+    <p>Drag and drop to arrange the images:</p>
+    <div class="row" id="sortable">
         @foreach($photos as $photo)
-            <li class="ui-state-default" data-id="{{ $photo->id }}">
-                <img src="{{ asset('storage/' . $photo->file) }}" width="100">
-                <span>{{ $photo->file }}</span>
-            </li>
+            <div class="col-md-2 ui-state-default" data-id="{{ $photo->id }}" style="margin: 10px;">
+                <div class="card">
+                    <img src="{{ asset('storage/' . $photo->file) }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                </div>
+            </div>
         @endforeach
-    </ul>
+    </div>
     <div class="row">
         <div class="col-md-12 mb-2">
             {{-- Change translation button group --}}
@@ -33,27 +34,30 @@
     </div>
     </div>
 @endsection
-
 @section('after_scripts')
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script>
-    $(function() {
-        $("#sortable").sortable();
-        $("#sortable").disableSelection();
-    });
-
-    $('#save-order').click(function() {
-        var orderedIDs = [];
-        $('#sortable li').each(function() {
-            orderedIDs.push($(this).data('id'));
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $("#sortable").sortable({
+                placeholder: "ui-state-highlight",
+                items: "> .col-md-2" // Target only the columns
+            });
+            $("#sortable").disableSelection();
         });
 
-        $.post('{{ url("admin/pariwisata/arrange-photos-save") }}', {
-            _token: '{{ csrf_token() }}',
-            order: orderedIDs
-        }, function(data) {
-            alert('Order saved successfully!');
+        $('#save-order').click(function() {
+            var orderedIDs = [];
+            $('#sortable .col-md-2').each(function() {
+                orderedIDs.push($(this).data('id'));
+            });
+
+            $.post('{{ url("admin/pariwisata/arrange-photos-save") }}', {
+                _token: '{{ csrf_token() }}',
+                order: orderedIDs
+            }, function(data) {
+                alert('Order saved successfully!');
+            });
         });
-    });
-</script>
+    </script>
 @endsection
+

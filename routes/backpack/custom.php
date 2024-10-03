@@ -24,6 +24,7 @@ Route::group([
     Route::get('commodities/arrange-images', 'App\Http\Controllers\Admin\CommoditiesCrudController@arrangeImages');
     Route::post('commodities/save-image-order', 'App\Http\Controllers\Admin\CommoditiesCrudController@saveImageOrder');
     Route::crud('commodity-prices', 'CommodityPricesCrudController');
+    Route::crud('events', 'EventsCrudController');
 }); // this should be the absolute last line of this file
 
 /**
